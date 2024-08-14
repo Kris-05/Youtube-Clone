@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css'
 import { Link } from 'react-router-dom'
-import {API_KEY, valueConverter} from '../../data'
+import { valueConverter} from '../../data'
 import moment from 'moment/moment'
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Feed = ({category}) => {
 
@@ -21,7 +22,7 @@ const Feed = ({category}) => {
     <div className='feed'>
         {data.map((item, index)=>{
             return (
-                <Link to={`video/${item.snippet.categoryId}/${item.id}`} className='card'>
+                <Link key={index} to={`video/${item.snippet.categoryId}/${item.id}`} className='card'>
                     <img src={item.snippet.thumbnails.medium.url} alt="thumbnail"/>
                     <h2>{item.snippet.title}</h2>
                     <h3>{item.snippet.channelTitle}</h3>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Recommended.css'
-import { API_KEY, valueConverter } from '../../data'
+import { valueConverter } from '../../data'
 import { Link } from 'react-router-dom'
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Recommended = ({categoryId}) => {
 
